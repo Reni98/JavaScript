@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ora.css">
+    <title>Digitális óra</title>
+</head>
+<body>
+
+    <h1>Digitális óra</h1>
+    <div id="ora"></div>
+
+    <script>
+        function digitalisOra(){
+            let most= new Date()
+
+            let ora = most.getHours()
+            let perc = most.getMinutes()
+            let mp = most.getSeconds()
+
+            if (perc < 10) perc="0" + perc
+            if (mp < 10) mp="0" + mp
+
+            document.getElementById("ora").innerHTML=ora + ":" + perc + ":" + mp
+        }
+        setInterval(digitalisOra, 100)
+        digitalisOra()
+    </script>
+    
+</body>
+</html>
