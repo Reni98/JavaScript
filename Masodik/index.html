@@ -12,6 +12,8 @@
 
 
     <h1>Videósok</h1>
+    <div id="ora"></div>
+
     <select name="" id="videosok">
         <option value="">--Válassz egyet--</option>
         <option  value="TheVR">TheVR</option>
@@ -29,13 +31,13 @@
         <label for="szdate">Születési dátum: </label>
         <input type="date" id="szdate">
         <label for="idpontok">Dátum:</label>
-        <select name="" id="idpontok">
+        <select name="" id="idopontok">
             <option value="">--Válassz egy időpontot--</option>
             <option value="2026-08-15">2026-08-15</option>
             <option value="2026-08-16">2026-08-16</option>
             <option value="2026-08-17">2026-08-17</option>
         </select>
-        <button onclick="bekuld()">Beküld</button>
+        <button type="button" onclick="bekuld()">Beküld</button>
     </form>
 
     <div id="szoveg"></div>
@@ -54,6 +56,21 @@
             black=!black
         }
 
+        function digitalisOra(){
+            let most= new Date()
+
+            let ora = most.getHours()
+            let perc = most.getMinutes()
+            let mp = most.getSeconds()
+
+            if (perc < 10) perc="0" + perc
+            if (mp < 10) mp="0" + mp
+
+            document.getElementById("ora").innerHTML=ora + ":" + perc + ":" + mp
+        }
+        setInterval(digitalisOra, 100)
+        digitalisOra()
+
         function valaszt(){
             let valasztas = document.getElementById("videosok")
             let value = valasztas.value
@@ -70,9 +87,28 @@
             let neve = document.getElementById("nev").value
             console.log(nev)
             let szdate = document.getElementById("szdate").value
-            let datum = datum.getElementById("idopontok").value
+            let datum = document.getElementById("idopontok").value
 
-            document.getElementById("szoveg").innerHTML="Név:"+ neve + "Születési dátum: " + szdate + "Dátum: " + datum
+            if (!neve || !szdate || !datum){
+                alert("Adj meg minden adatot!")
+                return
+            }
+
+            let most = new Date()
+            let szuletesiDatum= new Date(szdate)
+            let kor = most.getFullYear()-szuletesiDatum.getFullYear()
+
+            // let ar = 0
+            // if (kor <= 25){
+            //     ar = 2000
+            // }
+            // else if (kor > 25){
+            //     ar = 4000
+            // }
+
+            let ar = kor <= 25 ? 2000 : 4000
+
+            document.getElementById("szoveg").innerHTML="Név:"+ neve + "<br>" + "Születési dátum: " + szdate + "<br>" + "Dátum: " + datum + "<br>" + "Kor:" + kor + "<br>" + "Fizetendő: " + ar
             
         }
     </script>
