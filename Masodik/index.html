@@ -83,6 +83,7 @@
             
         }
 
+        let felhasznalok=[]
         function bekuld(){
             let neve = document.getElementById("nev").value
             console.log(nev)
@@ -108,7 +109,30 @@
 
             let ar = kor <= 25 ? 2000 : 4000
 
-            document.getElementById("szoveg").innerHTML="Név:"+ neve + "<br>" + "Születési dátum: " + szdate + "<br>" + "Dátum: " + datum + "<br>" + "Kor:" + kor + "<br>" + "Fizetendő: " + ar
+            //objektum létrehozása
+            let felhasznalo={
+                neve:neve,
+                szdate:szdate,
+                datum:datum,
+                kor:kor,
+                ar:ar
+            }
+            //adatok hozzáadása a tömbhöz
+            felhasznalok.push(felhasznalo)
+
+            let szoveg=""
+
+            for (let i=0; i<felhasznalok.length; i++){
+                szoveg += 
+                    felhasznalok[i].neve + ";" + "<br>" +
+                    felhasznalok[i].szdate + ";" + "<br>"+
+                    felhasznalok[i].datum + ";" + "<br>"+
+                    felhasznalok[i].kor + ";" + "<br>"+
+                    felhasznalok[i].ar + ";" + "<br>"
+            }
+
+            document.getElementById("szoveg").innerHTML=szoveg
+            // document.getElementById("szoveg").innerHTML="Név:"+ neve + "<br>" + "Születési dátum: " + szdate + "<br>" + "Dátum: " + datum + "<br>" + "Kor:" + kor + "<br>" + "Fizetendő: " + ar
             
         }
     </script>
