@@ -1,24 +1,49 @@
-let users = JSON.parse(localStorage.getItem("users")) || []
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Regisztráció</title>
+</head>
+<body>
 
-function register(){
-    let username=document.getElementById("username").value.trim()
-    let password=document.getElementById("password").value.trim()
+    <header>
+        <nav class="navbar navbar-expand-lg ">
+  <div class="container">
+    <a class="navbar-brand" href="#"><i class="bi bi-book-fill"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="register.html">Regisztráció</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="login.html">Bejelentkezés</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    </header>
 
-    if (username=="" || password==""){
-        alert("Minden adatot adj meg!")
-        return
-    }
+    <h1>Regisztráció</h1>
+    <form action="">
+        <label>Felhasználónév:</label>
+        <input type="text" id="username" required> <br><br>
+        <label >Jelszó:</label><br>
+        <input type="password" id="password" required><br><br>
+        <button type="button" onclick="register()">Regisztráció</button>
+    </form>
 
-    let user={
-        username:username,
-        password:password
-    }
-
-    users.push(user)
-    localStorage.setItem("users",JSON.stringify(users))
-    console.log(users);
-    alert("Sikeres regisztráció!")
     
-    window.location.href="login.html"
-    
-}
+
+    <script src="register.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
