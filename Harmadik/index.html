@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1.feladat -->
+    <!-- <label for="">Név</label>
+    <input type="text" id="nev">
+    <button onclick="udvozol()">üdvözöl</button>
+    <div id="kiir"></div> -->
+
+    <!-- 2.Feladat -->
+     <!-- <label for="">a (cm)</label>
+     <input type="number" id="a">
+     <label for="">b (cm)</label>
+     <input type="number" id="b">
+     <button onclick="kerulet()">Kerület</button>
+     <button onclick="terulet()">Terület</button>
+     <div id="kiir"></div> -->
+    
+     <!-- 4.Feladat -->
+        <!-- <button onclick="dobas()">Dobás</button>
+        <div id="dob"></div> -->
+
+        <!-- <label for="">Adj meg egy számot: </label>
+        <input type="number" id="szam">
+        <button onclick="megvizsgal()">Megad</button> -->
+
+        <!-- <label for="">Add meg a születési éved:</label>
+        <input type="number" id="szulev">
+        <button onclick="kiszamol()">Megad</button>
+        <div id="kiir"></div> -->
+
+        <!-- <label for="">fej vagy írás:</label>
+        <input type="text" id="jatek">
+        <button onclick="jatek()">Megad</button>
+        <div id="kiir"></div> -->
+
+        <!-- <label for="">Adj meg egy évszámot: </label>
+        <input type="number" id="szokoev">
+        <button onclick="szokoev_szamol()">Megad</button>
+        <div id="kiir"></div> -->
+
+        <label for="">Add meg a hónap számát: </label>
+        <input type="number" id="honap">
+        <button onclick="honapMegad()">Megad</button>
+        <div id="kiir"></div>
+
+    <script>
+        // let a = prompt("Kérek egy számot", 0)
+        // console.log("A megadott szám: ", a)
+
+        // let szam =Math.random()*20;
+        // console.log(Math.round(szam))
+
+        // let nev = prompt("Add meg a nevedet: ")
+        // prompt("Szia",nev)
+
+        // function udvozol(){
+        //     let nev = document.getElementById("nev").value
+        //     document.getElementById("kiir").innerHTML="Szia" + nev
+        //     // alert("nev")
+        // }
+
+        // function kerulet(){
+        //     let a = Number(document.getElementById("a").value)
+        //     let b = Number(document.getElementById("b").value)
+            
+        //     let eredmeny=2*(a+b)
+
+        //     document.getElementById("kiir").innerHTML="Kerület: " + eredmeny
+        // }
+
+        // function terulet(){
+        //      let a = Number(document.getElementById("a").value)
+        //     let b = Number(document.getElementById("b").value)
+
+        //     let eredmeny = a * b
+        //     document.getElementById("kiir").innerHTML="Terület: " + eredmeny
+        // }
+
+        // function dobas(){
+        //     let dob=Math.random()*6
+        //     if (dob > 0){
+        //         document.getElementById("dob").innerHTML="Dobás eredménye: " + Math.round(dob)
+        //     }
+            
+        // }
+
+        // function megvizsgal(){
+        //     let szam = document.getElementById("szam").value
+        //     if(szam >= -30 && szam<=40){
+        //         console.log("A kettő között van.",szam);
+                
+        //     }
+        //     else if(szam < -30){
+        //         console.log("Kisebb, mint -30", szam);
+                
+        //     }
+        //     else{
+        //         console.log("Nagyobb,mint 40", szam);                
+        //     }
+        // }
+
+        // function kiszamol(){
+        //     let szulev=document.getElementById("szulev").value
+        //     let kor = 2026-szulev
+
+        //     if (kor >= 0 && kor <= 6){
+        //         document.getElementById("kiir").innerHTML="Gyerek vagy: " + kor
+        //     }
+        //     else if (kor >= 7 && kor <= 18){
+        //          document.getElementById("kiir").innerHTML="Iskolás vagy: " + kor
+        //     }
+        //      else if (kor >= 19 && kor <= 60){
+        //          document.getElementById("kiir").innerHTML="Dolgozó vagy: " + kor
+        //     }else if (kor > 60){
+        //         document.getElementById("kiir").innerHTML="Nyugdíjas vagy: " + kor
+        //     }
+        // }
+
+        // function jatek(){
+        //     let valaszt=document.getElementById("jatek").value
+
+        //     let jatekos
+        //     let gep=Math.round(Math.random()*1)
+        //     if (valaszt=="fej"){
+        //         jatekos=0
+        //     }
+        //     else{
+        //         jatekos=1
+        //     }
+
+        //     if(jatekos==gep){
+        //         document.getElementById("kiir").innerHTML="Döntetlen "+ jatekos + " " + gep 
+        //     }
+        //     else if(jatekos == 0 && gep==1){
+        //         document.getElementById("kiir").innerHTML="Győztél, fej." + jatekos + " " + gep 
+        //     }
+        //     else{
+        //         document.getElementById("kiir").innerHTML="Vesztettél, írás." + jatekos + " " + gep 
+        //     }
+        // }
+
+        // function szokoev_szamol(){
+        //     let szokoev=document.getElementById("szokoev").value
+
+        //     if (szokoev % 4 == 0 && szokoev % 100 != 0 || szokoev % 400 == 0){
+        //         document.getElementById("kiir").innerHTML="Szökőév: " + szokoev
+        //     }
+        //     else{
+        //         document.getElementById("kiir").innerHTML="Nem szökőév: " + szokoev
+        //     }
+        // }
+
+        function honapMegad(){
+            let honap_szam= Number(document.getElementById("honap").value)
+          
+            switch(honap_szam){
+                case 1:
+                    
+                    document.getElementById("kiir").innerHTML="Január"
+                    break
+                
+                case 2:
+                    
+                    document.getElementById("kiir").innerHTML="Február"
+                    break
+                default:
+                    document.getElementById("kiir").innerHTML="Ismeretlen"
+                                
+        }
+    }
+    </script>
+</body>
+</html>
