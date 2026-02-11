@@ -1,42 +1,46 @@
-// let feltetel=50
-// let osszeg=0
-// let dobasok=[]
-// while (osszeg < feltetel){    
-//     let dob = Math.round(Math.random()*6)
-//      osszeg+=dob
-//     if (osszeg< feltetel){          
-//         dobasok.push(dob)
-//     }
+let feltetel=50
+let osszeg=0
+let dobasok=[]
+while (osszeg < feltetel){    
+    let dob = Math.round(Math.random()*6)
     
-// }
-// console.log(dobasok);
-// console.log(osszeg);
+    if (osszeg + dob > feltetel){
+        break
+    }
 
- let gep = Math.round(Math.random()*10)
+    osszeg += dob
+    dobasok.push(dob)
+}
+
+let gep = Math.round(Math.random()*10)
+let probak = 0
+const maxProbak = 3
+
 function jatek(){
-           
-        let jatekos=Number(document.getElementById("szam").value)
 
-    console.log(gep);
-    
-    for (let i=1; i < 4; i++){
-        
-            if ( jatekos==gep){
-        document.getElementById("kiir").innerHTML="Győztél!" + "Találatok száma: " + i      
-        break
-            }
-    
-    else if( jatekos < gep ){
-        document.getElementById("kiir").innerHTML="Kisebb számot attál meg!" + "Találatok száma: " + i
-        break
-        }
-    else if ( jatekos > gep){
-        document.getElementById("kiir").innerHTML="Nagyobb számot attál meg!" + "Találatok száma: " + i
-        break
-        }
+    if (probak >= maxProbak){
+        document.getElementById("kiir").innerHTML =
+        "Vége a játéknak! Elfogytak a próbálkozások."
+        return
+    }
+
+    let jatekos = Number(document.getElementById("szam").value)
+    probak++
+
+    if (jatekos == gep){
+        document.getElementById("kiir").innerHTML =
+        "Győztél! Találatok száma: " + probak
+    }
+    else if (jatekos < gep){
+        document.getElementById("kiir").innerHTML =
+        "Nagyobb számra gondoltam! (" + probak + "/3)"
+    }
+    else if (jatekos > gep){
+        document.getElementById("kiir").innerHTML =
+        "Kisebb számra gondoltam! (" + probak + "/3)"
+    }
     else{
-        document.getElementById("kiir").innerHTML="Nem számot adtál meg!"
-        }
-        }
-            
+        document.getElementById("kiir").innerHTML =
+        "Nem számot adtál meg!"
+    }
 }
